@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    :root{
+    /*Основные цвета*/
+    --bg-theme-color:  #fce4ec;
+    --bg-heart-color: #ff4081;
+    --bg-letter-color: #fff;
+    --bg-header-color:   #fff;
+    --text-color:#333;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-theme-color);
+}
+.header {
+    color: var(--bg-heart-color);
+    margin: 0px;
+    margin-bottom: 15%;
+    background: var(--bg-theme-color);
+}
+#text {
+    display: flex;
+    width: 300px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline 3px solid;
+    text-underline-offset: 3px;
+}
+.container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+}
+/* Основа сердечка (сложенное письмо) */
+.heart {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-heart-color);
+    transition: all 0.6s ease-in-out;
+}
+.heart::before, .heart::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-heart-color);
+    border-radius: 50%;
+}
+.heart::before {
+    top: -150px;
+    left: 0;
+  }
+.heart::after {
+    top: 0;
+    left: 150px;
+  }
+  /* Текст письма внутри */
+  .letter {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 300px;
+    height: 430px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+    z-index: 2;
+  }
+  h2{
+    color: var(--bg-heart-color);
+    font-style: italic;
+  }
+
+  /* Анимация при наведении */
+  .container:hover .heart {
+    transform: scale(1.2) rotate(45deg);
+    opacity: 0.3;
+  }
+  .container:hover .letter {
+    opacity: 1;
+    transform: scale(1);
+    /* Разворот письма */
+  }
+</style>
+    <title>Письмо от Бори</title>
+</head>
+<body>
+    <div class="header">
+        <h1 id="text">Наведи на сердце:)</span></h1>
+    </div>
+    <div class="container">
+        <div class="heart"></div>
+        <div class="letter">
+            <h2>Инга</h2>
+            <p>Ты мне не безразлична. Не могу представить эту жизнь без тебя, твоей улыбки и бездонных глаз. </p>
+            <p>Это не признание, но действием, решительностью, трудолюбием, желанием жить вместе хочу нам это доказать! Не хочу тебя обидеть, сделать твоему сердцу больно сказанным словом или своей нерешительностью!</p>
+            <p>Верю, что с твоей поддержкой и заботой я всего добьюсь! Прошу верить в меня, солнце</p>
+            <h2>Твой Боря</h2>
+        </div>
+    </div>
+
+</body>
+</html>
